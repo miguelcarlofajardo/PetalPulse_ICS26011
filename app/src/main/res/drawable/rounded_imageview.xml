@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background color or border color -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#00000000" /> <!-- Set the border color -->
+            <corners android:radius="8dp" /> <!-- Set the border radius -->
+        </shape>
+    </item>
+    <!-- Actual image -->
+    <item android:drawable="@drawable/ellipse_98" /> <!-- Replace "your_image" with your image resource -->
+</layer-list>

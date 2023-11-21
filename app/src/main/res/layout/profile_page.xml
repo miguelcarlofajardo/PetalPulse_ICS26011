@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.074"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.067"
+        app:srcCompat="@drawable/icon_back" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="650sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/rectangle_1053" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_imageview"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.125"
+        app:srcCompat="@drawable/ellipse_98" />
+
+    <LinearLayout
+        android:layout_width="358sp"
+        android:layout_height="165sp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.59">
+
+        <EditText
+            android:id="@+id/edtName4"
+            android:layout_width="match_parent"
+            android:layout_height="48sp"
+            android:layout_marginBottom="10sp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:fontFamily="@font/poppins_semibold"
+            android:hint="Name"
+            android:inputType="text"
+            android:padding="10sp"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/edtUsername7"
+            android:layout_width="match_parent"
+            android:layout_height="48sp"
+            android:layout_marginBottom="10sp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:fontFamily="@font/poppins_semibold"
+            android:hint="Username"
+            android:inputType="text"
+            android:padding="10sp"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/edtEmail5"
+            android:layout_width="match_parent"
+            android:layout_height="48sp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:fontFamily="@font/poppins_semibold"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="10sp"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

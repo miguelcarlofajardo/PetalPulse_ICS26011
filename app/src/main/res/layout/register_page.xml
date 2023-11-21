@@ -8,7 +8,7 @@
     android:background="@drawable/logregbg">
 
     <Button
-        android:id="@+id/btnLogin2"
+        android:id="@+id/btnRegister_1"
         android:layout_width="303sp"
         android:layout_height="56sp"
         android:backgroundTint="#FF7D8C"
@@ -76,7 +76,7 @@
         app:layout_constraintVertical_bias="0.06">
 
         <TextView
-            android:id="@+id/txtLogin2"
+            android:id="@+id/txtRegister"
             android:layout_width="196dp"
             android:layout_height="match_parent"
             android:layout_marginRight="5sp"
