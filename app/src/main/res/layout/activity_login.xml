@@ -6,38 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/txtCreate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Create Account"
-        android:textSize="13sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.652"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.864"
-        tools:ignore="TouchTargetSizeCheck" />
-
-    <TextView
-        android:id="@+id/txtLogin"
-        android:layout_width="155sp"
-        android:layout_height="34sp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Login Account"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.126"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.053" />
-
     <ImageView
         android:id="@+id/imgLogo"
         android:layout_width="wrap_content"
@@ -50,36 +18,6 @@
         app:layout_constraintVertical_bias="0.23"
         app:srcCompat="@drawable/p_1" />
 
-    <EditText
-        android:id="@+id/edtPassword"
-        android:layout_width="333sp"
-        android:layout_height="48sp"
-        android:ems="10"
-        android:fontFamily="@font/poppins_semibold"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.578" />
-
-    <EditText
-        android:id="@+id/edtEmail"
-        android:layout_width="333sp"
-        android:layout_height="48sp"
-        android:ems="10"
-        android:fontFamily="@font/poppins_semibold"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -90,31 +28,17 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.892"
+        app:layout_constraintHorizontal_bias="0.888"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.626" />
-
-    <TextView
-        android:id="@+id/txtNotRegisteredYet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Not registered yet? "
-        android:textColor="#808080"
-        android:textSize="13sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.307"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.864" />
+        app:layout_constraintVertical_bias="0.622" />
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="303sp"
         android:layout_height="56sp"
         android:backgroundTint="#FF7D8C"
+        android:fontFamily="@font/poppins_semibold"
         android:text="Login"
         android:textColor="#000000"
         app:cornerRadius="5sp"
@@ -125,41 +49,102 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.754" />
 
-    <ImageView
-        android:id="@+id/imgUser"
-        android:layout_width="22dp"
-        android:layout_height="34sp"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="355sp"
+        android:layout_height="120sp"
+        android:gravity="center|center_horizontal"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.457"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.053"
-        app:srcCompat="@drawable/user" />
+        app:layout_constraintVertical_bias="0.518">
 
-    <ImageView
-        android:id="@+id/imgCircle1"
-        android:layout_width="196dp"
-        android:layout_height="180dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/imgLogo"
-        app:layout_constraintStart_toEndOf="@+id/txtLogin"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ellipse_47" />
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="333sp"
+            android:layout_height="48sp"
+            android:layout_marginBottom="10sp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:fontFamily="@font/poppins_semibold"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="10sp"
+            android:textSize="15sp" />
 
-    <ImageView
-        android:id="@+id/imgCircle2"
-        android:layout_width="429dp"
-        android:layout_height="229dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="61dp"
-        app:layout_constraintBottom_toTopOf="@+id/imgLogo"
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="333sp"
+            android:layout_height="48sp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:fontFamily="@font/poppins_semibold"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="10sp"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="205sp"
+        android:layout_height="18sp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ellipse_48" />
+        app:layout_constraintVertical_bias="0.863">
+
+        <TextView
+            android:id="@+id/txtNotRegisteredYet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Not registered yet? "
+            android:textColor="#808080"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/txtCreate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Create Account"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="184dp"
+        android:layout_height="34dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.06">
+
+        <TextView
+            android:id="@+id/txtLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5sp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Login Account"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imgUser"
+            android:layout_width="22dp"
+            android:layout_height="34sp"
+            app:srcCompat="@drawable/user" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
