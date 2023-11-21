@@ -10,6 +10,8 @@
         android:id="@+id/txtCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:clickable="true"
+        android:fontFamily="@font/poppins_semibold"
         android:text="Create Account"
         android:textSize="13sp"
         android:textStyle="bold"
@@ -18,12 +20,14 @@
         app:layout_constraintHorizontal_bias="0.652"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.864" />
+        app:layout_constraintVertical_bias="0.864"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/txtLogin"
         android:layout_width="155sp"
         android:layout_height="34sp"
+        android:fontFamily="@font/poppins_semibold"
         android:text="Login Account"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -51,6 +55,7 @@
         android:layout_width="333sp"
         android:layout_height="48sp"
         android:ems="10"
+        android:fontFamily="@font/poppins_semibold"
         android:hint="Password"
         android:inputType="textPassword"
         android:textSize="15sp"
@@ -65,6 +70,7 @@
         android:layout_width="333sp"
         android:layout_height="48sp"
         android:ems="10"
+        android:fontFamily="@font/poppins_semibold"
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:textSize="15sp"
@@ -78,6 +84,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
         android:text="Forget Password?"
         android:textSize="13sp"
         android:textStyle="bold"
@@ -92,6 +99,7 @@
         android:id="@+id/txtNotRegisteredYet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
         android:text="Not registered yet? "
         android:textColor="#808080"
         android:textSize="13sp"
@@ -128,5 +136,30 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.053"
         app:srcCompat="@drawable/user" />
+
+    <ImageView
+        android:id="@+id/imgCircle1"
+        android:layout_width="196dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/imgLogo"
+        app:layout_constraintStart_toEndOf="@+id/txtLogin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ellipse_47" />
+
+    <ImageView
+        android:id="@+id/imgCircle2"
+        android:layout_width="429dp"
+        android:layout_height="229dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="61dp"
+        app:layout_constraintBottom_toTopOf="@+id/imgLogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ellipse_48" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
