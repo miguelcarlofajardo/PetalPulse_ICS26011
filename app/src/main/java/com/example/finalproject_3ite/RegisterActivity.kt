@@ -10,7 +10,7 @@ class RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+        setContentView(R.layout.register_page)
 
         val imageView = findViewById<ImageView>(R.id.imgLogo2)
         imageView.bringToFront()
