@@ -10,6 +10,7 @@
         android:id="@+id/imgImages"
         android:layout_width="match_parent"
         android:layout_height="650dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.542"
@@ -20,33 +21,19 @@
 
     <TextView
         android:id="@+id/txtDescription"
-        android:layout_width="337dp"
-        android:layout_height="69dp"
+        android:layout_width="334dp"
+        android:layout_height="158dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="99dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="43dp"
         android:fontFamily="@font/poppins"
+        android:justificationMode="inter_word"
         android:text="Discover the world of flowers and plants with our PetalPulse app. Explore a vast collection of blooms, from vibrant roses to exotic orchids."
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.418"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/txtWelcome"
-        android:layout_width="339dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="34dp"
-        android:layout_marginBottom="200dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Welcome to"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.407"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -55,8 +42,8 @@
         android:layout_height="45dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="38dp"
-        android:layout_marginBottom="168dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="640dp"
         android:fontFamily="@font/poppins_semibold"
         android:text="PetalPulse"
         android:textSize="40sp"
@@ -65,25 +52,49 @@
         app:layout_constraintHorizontal_bias="0.407"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/txtWelcome"
+        android:layout_width="339dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="666dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Welcome to"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.407"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:layout_alignParentTop="true"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="609dp"
+        android:layout_marginTop="544dp"
         android:layout_marginEnd="16dp"
-        android:text="Login" />
+        android:backgroundTint="#FF7D8C"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Login"
+        android:textColor="#000000"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:layout_below="@id/btnLogin"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:text="Register" />
+        android:backgroundTint="#FF7D8C"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Register"
+        android:textColor="#000000"
+        android:textSize="18sp" />
 
 
 </RelativeLayout>
