@@ -39,9 +39,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun postToList(){
-        for (i in 1..5){
-            addToList("PetalPulse","Discover the world of flowers and plants with our PetalPulse app. Explore a vast collection of blooms, from vibrant roses to exotic orchids.\"\n"
-                    ,R.drawable.womanflowers)
-        }
+        addToList("PetalPulse", "Explore the beauty of nature with our PetalPulse app. Immerse yourself in a diverse collection of flowers, from vibrant roses to exotic orchids.", R.drawable.womanflowers)
+        addToList("PetalPulse", "Embark on a floral journey with our PetalPulse app. Discover a spectrum of blooms, from lively roses to captivating orchids.", R.drawable.woman)
+        addToList("PetalPulse", "Indulge in the world of flowers with PetalPulse. Experience a rich assortment of blooms, from dynamic roses to alluring orchids.", R.drawable.women2)
+        addToList("PetalPulse", "Immerse yourself in nature's wonders with PetalPulse. Explore an array of blooms, from playful roses to enchanting orchids.", R.drawable.child)
+        addToList("PetalPulse", "Dive into the realm of flowers with PetalPulse. Witness a variety of blooms, from majestic roses to graceful orchids.", R.drawable.man)
+
+
     }
 }
