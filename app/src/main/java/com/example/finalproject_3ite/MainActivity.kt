@@ -7,6 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import me.relex.circleindicator.CircleIndicator
 import me.relex.circleindicator.CircleIndicator3
 
@@ -16,10 +18,31 @@ class MainActivity : AppCompatActivity() {
     private var descList = mutableListOf<String>()
     private var imageList = mutableListOf<Int>()
 
-
+    lateinit var databaseReference : DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+//        //database - Add
+//        databaseReference = FirebaseDatabase.getInstance().getReference("DatabaseName")
+//        var databaseClass = DatabaseClass("admin admin", "admin","petalpulse.admin@gmail.com", "admin123")
+//        var dataKey = databaseReference.push().getKey();
+//        databaseReference.child("uniqueid").setValue(databaseClass).addOnSuccessListener {
+//            Toast.makeText(this, "Success - Add", Toast.LENGTH_SHORT).show()
+//        }
+//
+//        //database - Update
+//        var empUpdate = mapOf<String, String>("EmpName" to "admin admin1", "EmpUsername" to "admin2", "EmpEmail" to "petalpulse.admin@gmail.com", "EmpPassword" to "admin1234")
+//        databaseReference.child("uniqueid").child("SamplOne").updateChildren(empUpdate).addOnSuccessListener {
+//            Toast.makeText(this, "Success - Update", Toast.LENGTH_SHORT).show()
+//        }
+//
+//        //database - Remove
+//        databaseReference.child("uniqueid").child("SamplOne").removeValue().addOnSuccessListener {
+//            Toast.makeText(this, "Success - Delete", Toast.LENGTH_SHORT).show()
+//        }
+//
+//
 
         postToList()
 
