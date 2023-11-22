@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "766485049806",
+    "project_id": "petalpulse-4680d",
+    "storage_bucket": "petalpulse-4680d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766485049806:android:e9b0768cdd447961867b9f",
+        "android_client_info": {
+          "package_name": "com.example.finalproject_3ite"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiIm6lxr8Ebr0GLP5hAd1nqdFRKpvKhbI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

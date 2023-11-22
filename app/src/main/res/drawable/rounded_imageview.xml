@@ -3,7 +3,7 @@
     <!-- Background color or border color -->
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="#00000000" /> <!-- Set the border color -->
+            <solid android:color="#00E05263" /> <!-- Set the border color -->
             <corners android:radius="8dp" /> <!-- Set the border radius -->
         </shape>
     </item>
