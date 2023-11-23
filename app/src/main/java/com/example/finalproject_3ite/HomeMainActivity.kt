@@ -1,6 +1,8 @@
 package com.example.finalproject_3ite
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import com.example.finalproject_3ite.databinding.ActivityListmainBinding
 
@@ -14,6 +16,12 @@ class HomeMainActivity : AppCompatActivity() {
 
         binding = ActivityListmainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val backButton : ImageButton = findViewById(R.id.btnBack)
+        val searchButton : ImageButton = findViewById(R.id.btnSearch)
+        val homeButton : ImageButton = findViewById(R.id.btnHome)
+        val shopButton : ImageButton = findViewById(R.id.btnShop)
+        val userButton : ImageButton = findViewById(R.id.btnUser)
 
         // Initialize your data
         val imageId = intArrayOf(
@@ -44,5 +52,16 @@ class HomeMainActivity : AppCompatActivity() {
 
         // Set up the ListView using the binding object
         binding.listView.adapter = AdapterClass(this, userArrayList)
+
+        userButton.setOnClickListener(){
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+        }
+
+        homeButton.setOnClickListener(){
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }

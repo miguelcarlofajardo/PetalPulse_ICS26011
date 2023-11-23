@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/icon_back"
                 android:layout_marginStart="10dp"
-                android:backgroundTint="#fff"/>
+                android:backgroundTint="#00FFFFFF"/>
 
             <Space
                 android:layout_width="0dp"
@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/iconsearch"
                 android:layout_marginEnd="20dp"
-                android:backgroundTint="#fff"/>
+                android:backgroundTint="#00FFFFFF"/>
 
         </LinearLayout>
 
@@ -133,7 +133,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/iconhome"
             android:layout_marginStart="50dp"
-            android:backgroundTint="#fff"/>
+            android:backgroundTint="#00FFFFFF"/>
 
         <Space
             android:layout_width="0dp"
@@ -141,11 +141,11 @@
             android:layout_weight="1" />
 
         <ImageButton
-        android:id="@+id/btnFavorite"
+        android:id="@+id/btnShop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/iconfavorites"
-        android:backgroundTint="#fff"/>
+        android:src="@drawable/iconcart"
+        android:backgroundTint="#00FFFFFF"/>
 
         <Space
             android:layout_width="0dp"
@@ -158,7 +158,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/iconuser"
             android:layout_marginEnd="50dp"
-            android:backgroundTint="#fff"/>
+            android:backgroundTint="#00FFFFFF"/>
 
     </LinearLayout>
 

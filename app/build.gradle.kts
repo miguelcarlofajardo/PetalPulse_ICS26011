@@ -58,6 +58,6 @@ dependencies {
         implementation("me.relex:circleindicator:2.1.6")
         implementation("de.hdodenhof:circleimageview:3.1.0")
         implementation ("com.google.firebase:firebase-auth:22.3.0")
-        implementation ("com.airbnb.android:lottie:4.2.2")
+        implementation ("com.airbnb.android:lottie:3.4.0")
 
 }
