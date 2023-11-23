@@ -57,7 +57,7 @@ dependencies {
         implementation("androidx.viewpager2:viewpager2:1.0.0")
         implementation("me.relex:circleindicator:2.1.6")
         implementation("de.hdodenhof:circleimageview:3.1.0")
-        implementation ("com.google.firebase:firebase-auth:22.3.0") // Use the latest version
-
+        implementation ("com.google.firebase:firebase-auth:22.3.0")
+        implementation ("com.airbnb.android:lottie:4.2.2")
 
 }

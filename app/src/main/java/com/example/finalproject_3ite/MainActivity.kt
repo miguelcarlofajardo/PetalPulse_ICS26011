@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
+import com.airbnb.lottie.LottieAnimationView
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
@@ -20,6 +21,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+//        val lottieAnimationView: LottieAnimationView = findViewById(R.id.lottieAnimationView)
+//        lottieAnimationView.playAnimation()
 
     postToList()
 
@@ -47,4 +51,5 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
 }

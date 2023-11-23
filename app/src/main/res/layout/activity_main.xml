@@ -6,11 +6,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
 
+<!--    <com.airbnb.lottie.LottieAnimationView-->
+<!--        android:id="@+id/lottieAnimationView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        app:lottie_autoPlay="true"-->
+<!--        app:lottie_fileName="flower_animation.json"-->
+<!--        app:lottie_loop="true"-->
+<!--        />-->
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewpager2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true" />
 
     <me.relex.circleindicator.CircleIndicator3
         android:id="@+id/indicator"
