@@ -36,7 +36,7 @@ class RegisterActivity : AppCompatActivity() {
         val etPassword = findViewById<EditText>(R.id.edtPassword2)
 
         textViewCreateAccount.setOnClickListener {
-            // Handle click event, e.g., navigate to the login activity
+            // to login
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
@@ -50,7 +50,7 @@ class RegisterActivity : AppCompatActivity() {
             if (name.isNotEmpty() && username.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
                 registerUser(name, username, email, password)
             } else {
-                // Handle empty fields
+                // empty items
                 Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show()
             }
         }
@@ -60,27 +60,26 @@ class RegisterActivity : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Registration success
+                    // registration success
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
                     finish()
                 } else {
-                    // If registration fails, handle different exceptions
+                    // exceptions
                     try {
                         throw task.exception!!
                     } catch (e: FirebaseAuthWeakPasswordException) {
-                        // Handle weak password exception
+                        // password exception
                         Toast.makeText(this, "Weak password", Toast.LENGTH_SHORT).show()
                     } catch (e: FirebaseAuthInvalidCredentialsException) {
-                        // Handle invalid email exception
+                        // email exception
                         Toast.makeText(this, "Invalid email", Toast.LENGTH_SHORT).show()
                     } catch (e: FirebaseAuthUserCollisionException) {
-                        // Handle user already exists exception
+                        // user already exists exception
                         Toast.makeText(this, "User with this email already exists", Toast.LENGTH_SHORT).show()
                     } catch (e: Exception) {
-                        // Log the exception for further analysis
+                        // exception log
                         Log.e("RegistrationError", "Registration failed", e)
-                        // Display a generic error message to the user
                         Toast.makeText(this, "Registration failed: ${e.message}", Toast.LENGTH_SHORT).show()
                     }
                 }

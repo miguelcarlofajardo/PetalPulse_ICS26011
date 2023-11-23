@@ -45,7 +45,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         textViewCreateAccount.setOnClickListener {
-            // Handle click event, e.g., navigate to the registration activity
+            // to register
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
@@ -59,22 +59,22 @@ class LoginActivity : AppCompatActivity() {
                     val user: FirebaseUser? = auth.currentUser
                     Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
 
-                    // Redirect to HomeActivity
-                    val intent = Intent(this, MainActivity::class.java)
+                    // to home main activity
+                    val intent = Intent(this, HomeMainActivity::class.java)
                     startActivity(intent)
-                    finish() // Optional: Close the LoginActivity
+                    finish()
                 } else {
-                    // If sign in fails, handle different exceptions
+                    // wrong sign in exceptions
                     try {
                         throw task.exception!!
                     } catch (e: FirebaseAuthInvalidCredentialsException) {
-                        // Handle invalid email or password
+                        // invalid email or password
                         Toast.makeText(this, "Invalid email or password", Toast.LENGTH_SHORT).show()
                     } catch (e: FirebaseAuthInvalidUserException) {
-                        // Handle invalid user (user not found) exception
+                        // user not found exception
                         Toast.makeText(this, "User not found", Toast.LENGTH_SHORT).show()
                     } catch (e: Exception) {
-                        // Handle other exceptions
+                        //others
                         Toast.makeText(this, "Login failed: ${e.message}", Toast.LENGTH_SHORT).show()
                     }
                 }
