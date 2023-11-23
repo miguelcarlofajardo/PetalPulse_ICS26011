@@ -91,14 +91,15 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="205sp"
-        android:layout_height="18sp"
+        android:layout_width="200dp"
+        android:layout_height="17dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.863">
+        app:layout_constraintVertical_bias="0.86">
 
         <TextView
             android:id="@+id/txtNotRegisteredYet"
@@ -115,14 +116,14 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:fontFamily="@font/poppins_semibold"
-            android:text="Create Account"
+            android:text="Register"
             android:textSize="13sp"
             android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="184dp"
+        android:layout_width="220dp"
         android:layout_height="34dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"

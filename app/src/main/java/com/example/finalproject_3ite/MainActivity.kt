@@ -1,16 +1,15 @@
 package com.example.finalproject_3ite
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.R.attr.password
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import me.relex.circleindicator.CircleIndicator
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.FirebaseApp
+import com.google.firebase.auth.FirebaseAuth
 import me.relex.circleindicator.CircleIndicator3
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     private var descList = mutableListOf<String>()
     private var imageList = mutableListOf<Int>()
 
-    lateinit var databaseReference : DatabaseReference
+//    lateinit var databaseReference : DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -44,7 +43,8 @@ class MainActivity : AppCompatActivity() {
 //
 //
 
-        postToList()
+
+    postToList()
 
         val viewPager2: ViewPager2 = findViewById(R.id.viewpager2)
 
