@@ -11,7 +11,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
-import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 
@@ -29,11 +28,11 @@ class RegisterActivity : AppCompatActivity() {
         imageView.bringToFront()
         val textViewCreateAccount = findViewById<TextView>(R.id.txtLoginHere)
 
-        val btnRegister = findViewById<Button>(R.id.btnRegister_1)
-        val etName = findViewById<EditText>(R.id.edtName)
-        val etUsername = findViewById<EditText>(R.id.edtUsername)
-        val etEmail = findViewById<EditText>(R.id.edtEmail2)
-        val etPassword = findViewById<EditText>(R.id.edtPassword2)
+        val btnRegister = findViewById<Button>(R.id.btnRPublish)
+        val etName = findViewById<EditText>(R.id.edtProductName)
+        val etUsername = findViewById<EditText>(R.id.edtSize)
+        val etEmail = findViewById<EditText>(R.id.edtProductDescription)
+        val etPassword = findViewById<EditText>(R.id.edtPrice)
 
         textViewCreateAccount.setOnClickListener {
             // to login

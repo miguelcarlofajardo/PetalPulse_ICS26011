@@ -66,7 +66,7 @@
                 app:layout_constraintVertical_bias="0.557">
 
                 <EditText
-                    android:id="@+id/edtName"
+                    android:id="@+id/edtProductName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10sp"
@@ -79,7 +79,7 @@
                     android:textSize="15sp" />
 
                 <EditText
-                    android:id="@+id/edtUsername"
+                    android:id="@+id/edtSize"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10sp"
@@ -92,7 +92,7 @@
                     android:textSize="15sp" />
 
                 <EditText
-                    android:id="@+id/edtPassword2"
+                    android:id="@+id/edtPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10sp"
@@ -105,7 +105,7 @@
                     android:textSize="15sp" />
 
                 <EditText
-                    android:id="@+id/edtEmail2"
+                    android:id="@+id/edtProductDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/edittext_border"
@@ -115,16 +115,17 @@
                     android:inputType="textEmailAddress"
                     android:padding="10sp"
                     android:textSize="15sp" />
+
                 <Button
-                    android:id="@+id/btnRegister_1"
+                    android:id="@+id/btnRPublish"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginVertical="20dp"
                     android:backgroundTint="#FF7D8C"
                     android:fontFamily="@font/poppins_semibold"
                     android:text="Register"
                     android:textColor="#000000"
                     app:cornerRadius="5sp"
-                    android:layout_marginVertical="20dp"
                     app:layout_constraintVertical_bias="0.804" />
 
             </LinearLayout>
