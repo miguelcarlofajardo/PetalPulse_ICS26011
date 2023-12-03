@@ -47,6 +47,12 @@
             android:exported="true">
         </activity>
 
+        <activity
+            android:name=".ProductListing"
+            android:exported="true">
+        </activity>
+
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
