@@ -1,5 +1,6 @@
 package com.example.finalproject_3ite
 
+import UserProfile
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +14,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
+import com.google.firebase.database.FirebaseDatabase
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -60,11 +62,20 @@ class RegisterActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // registration success
+                    val user = auth.currentUser
+                    val userId = user?.uid
+
+                    // Store user data in the database
+                    val databaseReference = FirebaseDatabase.getInstance().getReference("users")
+                    userId?.let {
+                        val userData = UserProfile(name, username, email)
+                        databaseReference.child(it).setValue(userData)
+                    }
+
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
                     finish()
                 } else {
-                    // exceptions
                     try {
                         throw task.exception!!
                     } catch (e: FirebaseAuthWeakPasswordException) {
