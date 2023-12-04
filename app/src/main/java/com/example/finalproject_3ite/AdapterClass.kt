@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import com.squareup.picasso.Picasso
 
 class AdapterClass(private val context: Activity, private val arrayList: ArrayList<Flowers>) :
     ArrayAdapter<Flowers>(context, R.layout.list_item, arrayList) {
@@ -32,11 +33,14 @@ class AdapterClass(private val context: Activity, private val arrayList: ArrayLi
             viewHolder = view.tag as ViewHolder
         }
 
-        viewHolder.imageView.setImageResource(arrayList[position].imageId)
+        // Load image using Picasso
+        Picasso.get().load(arrayList[position].imageUrl).into(viewHolder.imageView)
+
         viewHolder.productName.text = arrayList[position].name
         viewHolder.productPrice.text = arrayList[position].price
         viewHolder.rating.text = arrayList[position].rating
 
         return view
     }
+
 }

@@ -1,4 +1,9 @@
 package com.example.finalproject_3ite
 
-class Flowers (var name : String, var price : String,var rating : String, var imageId : Int, )    {
-}
+data class Flowers(
+    val name: String,
+    val price: String,
+    val rating: String,
+    val imageUrl: String,
+    val imageId: Int
+)

@@ -61,6 +61,8 @@ dependencies {
         implementation("de.hdodenhof:circleimageview:3.1.0")
         implementation ("com.google.firebase:firebase-auth:22.3.0")
         implementation ("com.airbnb.android:lottie:3.4.0")
+        implementation ("com.squareup.picasso:picasso:2.71828")
+
 
 
 }
