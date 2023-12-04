@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -48,6 +49,13 @@ class ProductListing : AppCompatActivity() {
 
             if (this::imageUri.isInitialized) {
                 uploadImage(name, size, price, description)
+
+                productName.setText("")
+                productSize.setText("")
+                productPrice.setText("")
+                productDescription.setText("")
+                val drawable = ContextCompat.getDrawable(this, R.drawable.flowersample)
+                findViewById<ImageView>(R.id.imageView).setImageDrawable(drawable)
 
 
             } else {
@@ -89,6 +97,7 @@ class ProductListing : AppCompatActivity() {
 
                         productReference.setValue(product).addOnSuccessListener {
                             Toast.makeText(this, "Added Successfully", Toast.LENGTH_SHORT).show()
+
                         }
                     } else {
                         Toast.makeText(this, "Failed to get image URL", Toast.LENGTH_SHORT).show()
