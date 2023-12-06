@@ -83,7 +83,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Upload Image" />
+                        android:backgroundTint="#FF7D8C"
+                        android:text="Upload Image"
+                        android:textColor="#000000" />
 
                     <EditText
                         android:id="@+id/edtProductName"

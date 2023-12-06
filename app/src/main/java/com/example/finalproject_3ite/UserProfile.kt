@@ -1,5 +1,5 @@
 data class UserProfile(
-    val name: String = "",
-    val username: String = "",
-    val email: String = ""
+    val name: String? = null,
+    val username: String? = null,
+    val email: String? = null
 )

@@ -4,22 +4,28 @@ import UserProfile
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 
-class ProfileActivity : AppCompatActivity () {
+class ProfileActivity : AppCompatActivity() {
+
+    private lateinit var txtNameProfile: TextView
+    private lateinit var txtUsernameProfile: TextView
+    private lateinit var txtEmailProfile: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.profile_page)
 
-        val addButton : Button = findViewById(R.id.btnAddItem)
+        val addButton: Button = findViewById(R.id.btnAddItem)
 
-        addButton.setOnClickListener{
+        txtNameProfile = findViewById(R.id.txtNameProfile)
+        txtUsernameProfile = findViewById(R.id.txtUsernameProfile)
+        txtEmailProfile = findViewById(R.id.txtUsernameEmail)
+
+        addButton.setOnClickListener {
             val intent = Intent(this, ProductListing::class.java)
             startActivity(intent)
         }
@@ -34,18 +40,10 @@ class ProfileActivity : AppCompatActivity () {
                 if (snapshot.exists()) {
                     val user = snapshot.getValue(UserProfile::class.java)
 
-                    // Display data in EditText fields
-                    val editTextName = findViewById<EditText>(R.id.edtName4)
-                    val editTextUsername = findViewById<EditText>(R.id.edtUsername7)
-                    val editTextEmail = findViewById<EditText>(R.id.edtEmail5)
-
-                    editTextName.setText(user?.name)
-                    editTextUsername.setText(user?.username)
-                    editTextEmail.setText(user?.email)
-
-                    editTextName.isEnabled = false
-                    editTextUsername.isEnabled = false
-                    editTextEmail.isEnabled = false
+                    // Display data in TextViews
+                    txtNameProfile.text = user?.name
+                    txtUsernameProfile.text = user?.username
+                    txtEmailProfile.text = user?.email
                 }
             }
 
