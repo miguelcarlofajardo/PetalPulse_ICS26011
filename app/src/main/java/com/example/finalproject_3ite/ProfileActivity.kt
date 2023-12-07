@@ -3,7 +3,9 @@ package com.example.finalproject_3ite
 import UserProfile
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -24,7 +26,17 @@ class ProfileActivity : AppCompatActivity() {
         txtNameProfile = findViewById(R.id.txtNameProfile)
         txtUsernameProfile = findViewById(R.id.txtUsernameProfile)
         txtEmailProfile = findViewById(R.id.txtUsernameEmail)
+        var buttonHome = findViewById<ImageButton>(R.id.btnHome)
+        var buttonShop = findViewById<ImageButton>(R.id.btnShop)
 
+        buttonHome.setOnClickListener{
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+        }
+        buttonShop.setOnClickListener{
+            val intent = Intent(this, HomeMainActivity::class.java)
+            startActivity(intent)
+        }
         addButton.setOnClickListener {
             val intent = Intent(this, ProductListing::class.java)
             startActivity(intent)
@@ -48,7 +60,7 @@ class ProfileActivity : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Handle error
+                Log.e("ProfileActivity", "Error reading data from Firebase: ${error.message}")
             }
         })
     }

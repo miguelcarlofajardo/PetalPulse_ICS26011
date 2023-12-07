@@ -1,5 +1,6 @@
 package com.example.finalproject_3ite
 
+import ProductClass
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -13,7 +14,7 @@ import com.google.firebase.ktx.Firebase
 class HomeMainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityListmainBinding
-    private lateinit var userArrayList: ArrayList<Flowers>
+    private lateinit var userArrayList: ArrayList<ProductClass>
     private lateinit var database: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,18 +38,6 @@ class HomeMainActivity : AppCompatActivity() {
         val userButton: ImageButton = findViewById(R.id.btnUser)
         val homeButton: ImageButton = findViewById(R.id.btnHome)
 
-//        // Inside onCreate()
-//// Comment out or remove readDataFromFirebase() and the Firebase-related code
-//
-//// Sample data for testing
-//        val sampleImageId = R.drawable.flowersample
-//        val sampleName = "Sample Flower"
-//        val samplePrice = "100"
-//        val sampleRating = "4.0"
-//
-//        userArrayList.add(Flowers(sampleName, samplePrice, sampleRating, "", sampleImageId))
-
-
         userButton.setOnClickListener {
             val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
@@ -61,7 +50,7 @@ class HomeMainActivity : AppCompatActivity() {
     }
 
     private fun readDataFromFirebase() {
-        val productsRef = database.child("products") // Change "flowers" to "products"
+        val productsRef = database.child("products")
 
         productsRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -69,16 +58,18 @@ class HomeMainActivity : AppCompatActivity() {
                     userArrayList.clear()
 
                     for (productSnapshot in snapshot.children) {
+                        val productId = productSnapshot.key ?: ""
                         val name = productSnapshot.child("productName").getValue(String::class.java) ?: ""
                         val price = productSnapshot.child("productPrice").getValue(Long::class.java)?.toString() ?: ""
-                        val rating = productSnapshot.child("productSize").getValue(String::class.java) ?: ""
+                        val size = productSnapshot.child("productSize").getValue(String::class.java) ?: ""
+                        val description = productSnapshot.child("productDescription").getValue(String::class.java) ?: ""
                         val imageUrl = productSnapshot.child("imageUrl").getValue(String::class.java) ?: ""
 
-                        Log.d("FirebaseData", "Name: $name, Price: $price, Rating: $rating, ImageUrl: $imageUrl")
+                        Log.d("FirebaseData", "ID: $productId, Name: $name, Price: $price, Size: $size, Description: $description, ImageUrl: $imageUrl")
 
                         val imageId = R.drawable.flowersample
 
-                        val product = Flowers(name, price, rating, imageUrl, imageId)
+                        val product = ProductClass(productId, name, price, size, description, imageUrl)
                         userArrayList.add(product)
                     }
 

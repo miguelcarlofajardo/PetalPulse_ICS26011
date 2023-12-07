@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -48,6 +49,7 @@ class ProductListing : AppCompatActivity() {
             val description = productDescription.text.toString()
 
             if (this::imageUri.isInitialized) {
+                // Show a loading indicator here (optional)
                 uploadImage(name, size, price, description)
 
                 productName.setText("")
@@ -56,7 +58,6 @@ class ProductListing : AppCompatActivity() {
                 productDescription.setText("")
                 val drawable = ContextCompat.getDrawable(this, R.drawable.flowersample)
                 findViewById<ImageView>(R.id.imageView).setImageDrawable(drawable)
-
 
             } else {
                 Toast.makeText(this, "Please select an image", Toast.LENGTH_SHORT).show()
@@ -85,29 +86,40 @@ class ProductListing : AppCompatActivity() {
         val uploadTask = imageRef.putFile(imageUri)
 
         uploadTask.addOnCompleteListener { task ->
+            // Hide the loading indicator here (optional)
+
             if (task.isSuccessful) {
                 imageRef.downloadUrl.addOnCompleteListener { urlTask ->
                     if (urlTask.isSuccessful) {
                         val imageUrl = urlTask.result.toString()
 
-                        val product = ProductClass(name, size, price, description, imageUrl)
-
+                        // Get the generated productId
                         val dataKey = databaseReference.push().key
-                        val productReference = databaseReference.child(dataKey!!)
 
-                        productReference.setValue(product).addOnSuccessListener {
-                            Toast.makeText(this, "Added Successfully", Toast.LENGTH_SHORT).show()
+                        val product = ProductClass(
+                            dataKey.toString(), name, price.toString(), size, description, imageUrl)
 
-                        }
+                        // Pass productId along with other details to ProductDetailsActivity
+                        val intent = Intent(this@ProductListing, ProductDetailsActivity::class.java)
+                        intent.putExtra("productId", dataKey)
+                        intent.putExtra("productName", name)
+                        intent.putExtra("productPrice", price.toString())
+                        intent.putExtra("productDescription", description)
+                        intent.putExtra("imageUrl", imageUrl)
+                        startActivity(intent)
+
                     } else {
+                        Log.e("ProductListing", "Failed to get image URL", urlTask.exception)
                         Toast.makeText(this, "Failed to get image URL", Toast.LENGTH_SHORT).show()
                     }
                 }
             } else {
+                Log.e("ProductListing", "Failed to upload image", task.exception)
                 Toast.makeText(this, "Failed to upload image", Toast.LENGTH_SHORT).show()
             }
         }
     }
+
 
     companion object {
         private const val PICK_IMAGE_REQUEST = 1
