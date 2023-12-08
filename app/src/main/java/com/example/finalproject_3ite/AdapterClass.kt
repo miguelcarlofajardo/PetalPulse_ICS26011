@@ -38,18 +38,18 @@ class AdapterClass(private val context: Activity, private val productList: Array
         // Load image using Picasso
         Picasso.get().load(productList[position].imageUrl).into(viewHolder.imageView)
 
-        viewHolder.productName.text = productList[position].name
-        viewHolder.productPrice.text = productList[position].price
-        viewHolder.size.text = productList[position].size
+        viewHolder.productName.text = productList[position].productName
+        viewHolder.productPrice.text = productList[position].productPrice.toString()
+        viewHolder.size.text = productList[position].productSize
 
         // Set click listener for the item
         view.setOnClickListener {
             val intent = Intent(context, ProductDetailsActivity::class.java)
             val product = productList[position]
             intent.putExtra("productId", product.productId)
-            intent.putExtra("productName", product.name)
-            intent.putExtra("productPrice", product.price)
-            intent.putExtra("productSize", product.size)
+            intent.putExtra("productName", product.productName)
+            intent.putExtra("productPrice", product.productPrice)
+            intent.putExtra("productSize", product.productSize)
             intent.putExtra("imageUrl", product.imageUrl)
             context.startActivity(intent)
         }

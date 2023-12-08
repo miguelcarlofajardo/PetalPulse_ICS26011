@@ -28,20 +28,24 @@ class ProductDetailsActivity : AppCompatActivity() {
         val productImageView: ImageView = findViewById(R.id.productImageView)
         val productNameTextView: TextView = findViewById(R.id.productName)
         val productPriceTextView: TextView = findViewById(R.id.productPrice)
+        val productSizeTextView: TextView = findViewById(R.id.productSize)
         val productDescriptionTextView: TextView = findViewById(R.id.productDescription)
 
         // Retrieve data from the Intent
         val productId = intent.getStringExtra("productId")
         val productName = intent.getStringExtra("productName")
-        val productPrice = intent.getStringExtra("productPrice")
-        val productDescription = intent.getStringExtra("productDescription")
+        val productPrice = intent.getFloatExtra("productPrice", 0.0f)
+        val productSize = intent.getStringExtra("productSize")
+        val productDescription = intent.getStringExtra("productDescription") ?: ""
         val imageUrl = intent.getStringExtra("imageUrl")
 
         // Set data to views
         Picasso.get().load(imageUrl).into(productImageView)
         productNameTextView.text = productName
-        productPriceTextView.text = productPrice
+        productPriceTextView.text = productPrice.toString()
+        productSizeTextView.text = productSize
         productDescriptionTextView.text = productDescription
+        Log.d("ProductDetailsActivity", "Product Description: $productDescription")
 
         backButton.setOnClickListener {
             onBackPressed()
@@ -52,7 +56,6 @@ class ProductDetailsActivity : AppCompatActivity() {
             Log.d("ProductDetailsActivity", "Deleting product with ID: $productId")
             deleteData(productId)
         }
-
     }
 
     private fun showSuccessDialog(productId: String?) {

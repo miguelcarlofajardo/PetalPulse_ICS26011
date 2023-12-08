@@ -50,7 +50,7 @@ class HomeMainActivity : AppCompatActivity() {
     }
 
     private fun readDataFromFirebase() {
-        val productsRef = database.child("products")
+        val productsRef = database.child("products") // Make sure it matches your Firebase structure
 
         productsRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -59,18 +59,27 @@ class HomeMainActivity : AppCompatActivity() {
 
                     for (productSnapshot in snapshot.children) {
                         val productId = productSnapshot.key ?: ""
-                        val name = productSnapshot.child("productName").getValue(String::class.java) ?: ""
-                        val price = productSnapshot.child("productPrice").getValue(Long::class.java)?.toString() ?: ""
-                        val size = productSnapshot.child("productSize").getValue(String::class.java) ?: ""
-                        val description = productSnapshot.child("productDescription").getValue(String::class.java) ?: ""
-                        val imageUrl = productSnapshot.child("imageUrl").getValue(String::class.java) ?: ""
+                        val productName =
+                            productSnapshot.child("productName").getValue(String::class.java) ?: ""
+                        val productPrice =
+                            productSnapshot.child("productPrice").getValue(Float::class.java) ?: 0.0f
+                        val productSize =
+                            productSnapshot.child("productSize").getValue(String::class.java) ?: ""
+                        val description =
+                            productSnapshot.child("productDescription").getValue(String::class.java)
+                                ?: ""
+                        val imageUrl =
+                            productSnapshot.child("imageUrl").getValue(String::class.java) ?: ""
 
-                        Log.d("FirebaseData", "ID: $productId, Name: $name, Price: $price, Size: $size, Description: $description, ImageUrl: $imageUrl")
+                        Log.d(
+                            "FirebaseData",
+                            "ID: $productId, Name: $productName, Price: $productPrice, Size: $productSize, Description: $description, ImageUrl: $imageUrl"
+                        )
 
-                        val imageId = R.drawable.flowersample
-
-                        val product = ProductClass(productId, name, price, size, description, imageUrl)
-                        userArrayList.add(product)
+                        val products = ProductClass(
+                            productId, productName, productPrice, productSize, description, imageUrl
+                        )
+                        userArrayList.add(products)
                     }
 
                     (binding.listView.adapter as AdapterClass).notifyDataSetChanged()

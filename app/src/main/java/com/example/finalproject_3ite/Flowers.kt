@@ -5,5 +5,4 @@ data class Flowers(
     val price: String,
     val rating: String,
     val imageUrl: String,
-    val imageId: Int
 )

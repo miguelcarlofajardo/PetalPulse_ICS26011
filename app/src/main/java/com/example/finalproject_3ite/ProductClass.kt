@@ -1,8 +1,8 @@
 data class ProductClass(
     val productId: String,
-    val name: String,
-    val price: String,
-    val size: String,
-    val description: String,
-    val imageUrl: String,
+    val productName: String,
+    val productPrice: Float,
+    val productSize: String,
+    val productDescription: String,
+    val imageUrl: String
 )
