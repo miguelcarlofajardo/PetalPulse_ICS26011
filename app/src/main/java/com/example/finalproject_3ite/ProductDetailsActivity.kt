@@ -36,16 +36,28 @@ class ProductDetailsActivity : AppCompatActivity() {
         val productName = intent.getStringExtra("productName")
         val productPrice = intent.getFloatExtra("productPrice", 0.0f)
         val productSize = intent.getStringExtra("productSize")
-        val productDescription = intent.getStringExtra("productDescription") ?: ""
         val imageUrl = intent.getStringExtra("imageUrl")
 
-        // Set data to views
-        Picasso.get().load(imageUrl).into(productImageView)
-        productNameTextView.text = productName
-        productPriceTextView.text = productPrice.toString()
-        productSizeTextView.text = productSize
-        productDescriptionTextView.text = productDescription
-        Log.d("ProductDetailsActivity", "Product Description: $productDescription")
+        // Fetch product description from Firebase
+        databaseReference.child(productId ?: "").child("productDescription")
+            .get()
+            .addOnSuccessListener { snapshot ->
+                val productDescription = snapshot.value as? String
+                Log.d("ProductDetailsActivity", "Product Description (Firebase): $productDescription")
+
+                // Set data to views
+                Picasso.get().load(imageUrl).into(productImageView)
+                productNameTextView.text = productName
+                productPriceTextView.text = productPrice.toString()
+                productSizeTextView.text = productSize
+                productDescriptionTextView.text = productDescription
+
+                // Logging the product description
+                Log.d("ProductDetailsActivity", "Product Description: $productDescription")
+            }
+            .addOnFailureListener { e ->
+                Log.e("ProductDetailsActivity", "Error fetching product description", e)
+            }
 
         backButton.setOnClickListener {
             onBackPressed()
