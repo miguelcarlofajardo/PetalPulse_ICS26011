@@ -33,10 +33,10 @@ class ProductListing : AppCompatActivity() {
         databaseReference = FirebaseDatabase.getInstance().getReference("products")
         storageReference = FirebaseStorage.getInstance().reference
 
-        val productName: EditText = findViewById(R.id.edtProductName)
-        val productSize: EditText = findViewById(R.id.edtSize)
-        val productPrice: EditText = findViewById(R.id.edtPrice)
-        val productDescription: EditText = findViewById(R.id.edtProductDescription)
+        val productName: EditText = findViewById(R.id.edtEditName)
+        val productSize: EditText = findViewById(R.id.edtEditUsername)
+        val productPrice: EditText = findViewById(R.id.edtEditOldPassword)
+        val productDescription: EditText = findViewById(R.id.edtEditEmail)
         val productImage: Button = findViewById(R.id.btnUploadImage)
         val publishButton: Button = findViewById(R.id.btnPublish)
         val homeButton: ImageButton = findViewById(R.id.btnHome)

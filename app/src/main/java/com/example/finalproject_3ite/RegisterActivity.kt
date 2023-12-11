@@ -31,10 +31,10 @@ class RegisterActivity : AppCompatActivity() {
         val textViewCreateAccount = findViewById<TextView>(R.id.txtLoginHere)
 
         val btnRegister = findViewById<Button>(R.id.btnRPublish)
-        val etName = findViewById<EditText>(R.id.edtProductName)
-        val etUsername = findViewById<EditText>(R.id.edtSize)
-        val etEmail = findViewById<EditText>(R.id.edtProductDescription)
-        val etPassword = findViewById<EditText>(R.id.edtPrice)
+        val etName = findViewById<EditText>(R.id.edtEditName)
+        val etUsername = findViewById<EditText>(R.id.edtEditUsername)
+        val etEmail = findViewById<EditText>(R.id.edtEditEmail)
+        val etPassword = findViewById<EditText>(R.id.edtEditOldPassword)
 
         textViewCreateAccount.setOnClickListener {
             // to login

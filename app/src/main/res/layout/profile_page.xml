@@ -102,6 +102,38 @@
                     android:layout_width="match_parent"
                     android:layout_height="48sp" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnEditAccount"
+                        android:layout_width="154dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginVertical="20dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#8BC34A"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Edit Account"
+                        android:textColor="#000000"
+                        app:cornerRadius="5sp" />
+
+                    <Button
+                        android:id="@+id/btnDeleteAccount"
+                        android:layout_width="154dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginVertical="20dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#FF001D"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Delete Account"
+                        android:textColor="#000000"
+                        app:cornerRadius="5sp" />
+                </LinearLayout>
+
                 <Button
                     android:id="@+id/btnAddItem"
                     android:layout_width="269dp"
