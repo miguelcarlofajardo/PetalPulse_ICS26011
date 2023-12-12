@@ -11,8 +11,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.squareup.picasso.Picasso
 
-class AdapterClass(private val context: Activity, private val productList: ArrayList<ProductClass>) :
+class AdapterClass(private val context: Activity, private var productList: ArrayList<ProductClass>) :
     ArrayAdapter<ProductClass>(context, R.layout.list_item, productList) {
+
+    private val originalProductList: List<ProductClass> = ArrayList(productList)
 
     private class ViewHolder(view: View) {
         val imageView: ImageView = view.findViewById(R.id.profile)
@@ -55,5 +57,15 @@ class AdapterClass(private val context: Activity, private val productList: Array
         }
 
         return view
+    }
+    fun updateList(newList: List<ProductClass>) {
+        productList.clear()
+        productList.addAll(newList)
+        notifyDataSetChanged()
+    }
+    fun restoreOriginalList() {
+        productList.clear()
+        productList.addAll(originalProductList)
+        notifyDataSetChanged()
     }
 }

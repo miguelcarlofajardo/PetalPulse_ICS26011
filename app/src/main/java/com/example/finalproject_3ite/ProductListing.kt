@@ -1,6 +1,7 @@
 package com.example.finalproject_3ite
 
 import ProductClass
+import android.app.Dialog
 import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
@@ -11,6 +12,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -95,10 +97,18 @@ class ProductListing : AppCompatActivity() {
 
     private fun uploadImage(name: String, size: String, price: Float, description: String) {
         // Create and show a ProgressDialog
-        val progressDialog = ProgressDialog(this)
-        progressDialog.setMessage("Uploading...")
-        progressDialog.setCancelable(false)
-        progressDialog.show()
+        val dialog = Dialog(this)
+        dialog.setContentView(R.layout.progress_dialog)
+        dialog.setCancelable(false)
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        // Access the TextView and update the text
+        val textViewMessage = dialog.findViewById<TextView>(R.id.textViewMessage)
+        textViewMessage.text = "Uploading..."
+
+        // Show the dialog
+        dialog.show()
+
 
         // Generate a unique image name using UUID
         val imageName = UUID.randomUUID().toString()
@@ -112,7 +122,7 @@ class ProductListing : AppCompatActivity() {
         // Set up a listener to be notified when the upload is complete
         uploadTask.addOnCompleteListener { task ->
             // Dismiss the ProgressDialog
-            progressDialog.dismiss()
+            dialog.dismiss()
             if (task.isSuccessful) {
                 // If the image upload is successful, get the download URL
                 imageRef.downloadUrl.addOnCompleteListener { urlTask ->

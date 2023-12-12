@@ -4,6 +4,8 @@ import ProductClass
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Button
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import com.example.finalproject_3ite.databinding.ActivityListmainBinding
@@ -16,6 +18,7 @@ class HomeMainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityListmainBinding
     private lateinit var userArrayList: ArrayList<ProductClass>
     private lateinit var database: DatabaseReference
+    private lateinit var originalProductList: List<ProductClass>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +40,37 @@ class HomeMainActivity : AppCompatActivity() {
 
         val userButton: ImageButton = findViewById(R.id.btnUser)
         val homeButton: ImageButton = findViewById(R.id.btnHome)
+        val searchButton: ImageButton = findViewById(R.id.btnSearch)
+
+        searchButton.setOnClickListener {
+            val searchEditText = binding.etSearchQuery
+
+            // If the EditText is visible, perform the search
+            if (searchEditText.visibility == View.VISIBLE) {
+                val searchQuery = searchEditText.text.toString().toLowerCase()
+
+                if (searchQuery.isBlank()) {
+                    // If the search query is blank, restore the original list
+                    (binding.listView.adapter as? AdapterClass)?.restoreOriginalList()
+                } else {
+                    val filteredList = userArrayList.filter {
+                        it.productName.toLowerCase().contains(searchQuery) ||
+                                it.productSize.toLowerCase().contains(searchQuery) ||
+                                it.productDescription.toLowerCase().contains(searchQuery)
+                    }.toMutableList()
+
+                    (binding.listView.adapter as? AdapterClass)?.updateList(filteredList)
+                }
+            }
+
+            // Toggle the visibility of the EditText
+            searchEditText.visibility = if (searchEditText.visibility == View.VISIBLE) {
+                View.GONE
+            } else {
+                searchEditText.requestFocus()
+                View.VISIBLE
+            }
+        }
 
         userButton.setOnClickListener {
             val intent = Intent(this, ProfileActivity::class.java)
@@ -55,6 +89,7 @@ class HomeMainActivity : AppCompatActivity() {
         productsRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
+                    originalProductList = userArrayList.toList()
                     userArrayList.clear()
 
                     for (productSnapshot in snapshot.children) {

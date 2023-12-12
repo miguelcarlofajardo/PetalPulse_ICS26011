@@ -105,6 +105,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
                     android:orientation="horizontal">
 
                     <Button
@@ -113,6 +116,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginVertical="20dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
                         android:layout_weight="1"
                         android:backgroundTint="#8BC34A"
                         android:fontFamily="@font/poppins_semibold"
@@ -126,8 +131,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginVertical="20dp"
+                        android:layout_marginEnd="10dp"
                         android:layout_weight="1"
-                        android:backgroundTint="#FF001D"
+                        android:backgroundTint="#FF7D8C"
                         android:fontFamily="@font/poppins_semibold"
                         android:text="Delete Account"
                         android:textColor="#000000"
@@ -140,7 +146,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginVertical="20dp"
-                    android:backgroundTint="#FF7D8C"
+                    android:backgroundTint="#F19984"
                     android:fontFamily="@font/poppins_semibold"
                     android:text="Add Item"
                     android:textColor="#000000"
