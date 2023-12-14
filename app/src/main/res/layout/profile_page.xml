@@ -19,9 +19,26 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/btnLogout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/logout1"
+                    android:backgroundTint="#00FFFFFF"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginVertical="30dp"
+                android:layout_marginVertical="10dp"
                 android:orientation="vertical">
 
                 <ImageView
@@ -45,7 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="401dp"
                 android:orientation="vertical"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="30dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.457"
@@ -57,42 +74,47 @@
                     android:id="@+id/txtName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_semibold"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textSize="18dp"
                     android:text="Name" />
 
                 <TextView
                     android:id="@+id/txtNameProfile"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/poppins_semibold"
                     android:layout_height="48sp" />
 
                 <TextView
                     android:id="@+id/txtUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_semibold"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textSize="18dp"
                     android:text="Username" />
 
                 <TextView
                     android:id="@+id/txtUsernameProfile"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/poppins_semibold"
                     android:layout_height="48sp" />
 
                 <TextView
                     android:id="@+id/txtEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_semibold"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textSize="18dp"
                     android:text="Email" />
 
                 <TextView
                     android:id="@+id/txtUsernameEmail"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/poppins_semibold"
                     android:layout_height="48sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="5dp"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
                     android:orientation="horizontal">
@@ -132,7 +154,7 @@
                     android:layout_width="269dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginVertical="20dp"
+                    android:layout_marginVertical="10dp"
                     android:backgroundTint="#F19984"
                     android:fontFamily="@font/poppins_semibold"
                     android:text="Add Item"

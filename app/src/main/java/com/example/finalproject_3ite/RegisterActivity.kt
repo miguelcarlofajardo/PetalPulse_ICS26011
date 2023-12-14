@@ -50,6 +50,7 @@ class RegisterActivity : AppCompatActivity() {
 
             if (name.isNotEmpty() && username.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
                 registerUser(name, username, email, password)
+                Toast.makeText(this, "Registered Successfully", Toast.LENGTH_SHORT).show()
             } else {
                 // empty items
                 Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show()
@@ -71,7 +72,6 @@ class RegisterActivity : AppCompatActivity() {
                         val userData = UserProfile(name, username, email)
                         databaseReference.child(it).setValue(userData)
                     }
-
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
                     finish()

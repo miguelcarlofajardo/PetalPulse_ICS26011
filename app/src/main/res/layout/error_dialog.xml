@@ -6,65 +6,79 @@
     android:background="@drawable/dialog_background"
     android:padding="20dp">
 
-    <FrameLayout
-        android:id="@+id/framelayout"
-        android:layout_width="match_parent"
-        android:layout_height="120sp"
-        android:layout_centerInParent="true"
-        android:layout_weight="1">
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottieAnimationView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/failed" />
-
-    </FrameLayout>
-
-    <TextView
-        android:id="@+id/errorMessage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/framelayout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="0sp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Failed to Upload..."
-        android:textColor="#659157"
-        android:textSize="22sp"
-        android:visibility="visible" />
-
+    <!-- Wrap the existing components inside a LinearLayout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/errorMessage"
-        android:layout_marginTop="20sp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
 
-        <Button
-            android:id="@+id/btnRetry"
-            android:layout_width="154sp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10sp"
-            android:backgroundTint="#659157"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Retry"
-            android:textColor="#000000"
-            app:cornerRadius="5sp" />
+        <FrameLayout
+            android:id="@+id/framelayout"
+            android:layout_width="match_parent"
+            android:layout_height="120sp"
+            android:layout_weight="1">
 
-        <Button
-            android:id="@+id/btnCancel"
-            android:layout_width="154sp"
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieAnimationView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/failed" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#E05263"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Cancel"
-            android:textColor="#000"
-            app:cornerRadius="5sp" />
+            android:layout_marginTop="20sp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/errorMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/framelayout"
+                android:gravity="center"
+                android:layout_marginTop="0sp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Failed to Upload..."
+                android:textColor="#659157"
+                android:textSize="22sp"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btnRetry"
+                    android:layout_width="154sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10sp"
+                    android:backgroundTint="#659157"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Retry"
+                    android:textColor="#000000"
+                    app:cornerRadius="5sp" />
+
+                <Button
+                    android:id="@+id/btnCancel"
+                    android:layout_width="154sp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#E05263"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Cancel"
+                    android:textColor="#000"
+                    app:cornerRadius="5sp" />
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 

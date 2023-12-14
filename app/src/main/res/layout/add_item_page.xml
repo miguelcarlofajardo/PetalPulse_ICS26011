@@ -75,7 +75,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="20dp"
+                    android:padding="10dp"
                     app:layout_constraintVertical_bias="0.557">
 
                     <Button
@@ -85,6 +85,8 @@
                         android:layout_gravity="center"
                         android:backgroundTint="#FF7D8C"
                         android:text="Upload Image"
+                        android:layout_margin="10dp"
+                        android:fontFamily="@font/poppins_semibold"
                         android:textColor="#000000" />
 
                     <EditText

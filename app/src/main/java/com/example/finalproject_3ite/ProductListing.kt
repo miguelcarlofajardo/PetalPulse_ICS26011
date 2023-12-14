@@ -231,7 +231,7 @@ class ProductListing : AppCompatActivity() {
         dialog.setContentView(R.layout.error_dialog)
 
         val errorMessageTextView = dialog.findViewById<TextView>(R.id.errorMessage)
-        errorMessageTextView.text = errorMessages.joinToString("\n") { "- $it" }
+        errorMessageTextView.text = errorMessages.joinToString("\n") { "$it" }
 
         val retryButton = dialog.findViewById<Button>(R.id.btnRetry)
         retryButton.setOnClickListener {

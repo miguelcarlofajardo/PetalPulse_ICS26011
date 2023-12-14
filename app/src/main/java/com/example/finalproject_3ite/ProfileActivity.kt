@@ -26,6 +26,7 @@ class ProfileActivity : AppCompatActivity() {
         val addButton: Button = findViewById(R.id.btnAddItem)
         val editButton: Button = findViewById(R.id.btnEditAccount)
         val deleteButton: Button = findViewById(R.id.btnDeleteAccount)
+        val logoutButton: ImageButton = findViewById(R.id.btnLogout)
 
         txtNameProfile = findViewById(R.id.txtNameProfile)
         txtUsernameProfile = findViewById(R.id.txtUsernameProfile)
@@ -54,6 +55,11 @@ class ProfileActivity : AppCompatActivity() {
         deleteButton.setOnClickListener {
             // Show AlertDialog to confirm account deletion
             showDeleteConfirmationDialog()
+        }
+
+        logoutButton.setOnClickListener {
+            // Show AlertDialog to confirm logout
+            showLogoutConfirmationDialog()
         }
 
         // Retrieve user ID from FirebaseAuth
@@ -94,6 +100,21 @@ class ProfileActivity : AppCompatActivity() {
         alertDialogBuilder.create().show()
     }
 
+    private fun showLogoutConfirmationDialog() {
+        val alertDialogBuilder = AlertDialog.Builder(this)
+        alertDialogBuilder.setTitle("Confirm Logout")
+        alertDialogBuilder.setMessage("Are you sure you want to log out?")
+        alertDialogBuilder.setPositiveButton("Yes") { _, _ ->
+            // User clicked Yes, proceed with logout
+            logout()
+        }
+        alertDialogBuilder.setNegativeButton("No") { dialog, _ ->
+            // User clicked No, dismiss the dialog
+            dialog.dismiss()
+        }
+        alertDialogBuilder.create().show()
+    }
+
     private fun deleteAccount() {
         val user = FirebaseAuth.getInstance().currentUser
 
@@ -120,5 +141,15 @@ class ProfileActivity : AppCompatActivity() {
                 Log.e("ProfileActivity", "Error deleting account: ${task.exception?.message}")
             }
         }
+    }
+
+    private fun logout() {
+        FirebaseAuth.getInstance().signOut()
+
+        // Navigate to the login screen
+        val intent = Intent(this, LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        finish()
     }
 }
