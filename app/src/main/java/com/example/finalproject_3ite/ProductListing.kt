@@ -2,7 +2,6 @@ package com.example.finalproject_3ite
 
 import ProductClass
 import android.app.Dialog
-import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -43,6 +42,12 @@ class ProductListing : AppCompatActivity() {
         val publishButton: Button = findViewById(R.id.btnPublish)
         val homeButton: ImageButton = findViewById(R.id.btnHome)
         val shopButton: ImageButton = findViewById(R.id.btnShop)
+        val btnCancelAddItem: Button = findViewById(R.id.btnCancel)
+
+        btnCancelAddItem.setOnClickListener {
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+        }
 
         shopButton.setOnClickListener {
             val intent = Intent(this, HomeMainActivity::class.java)
@@ -64,48 +69,67 @@ class ProductListing : AppCompatActivity() {
             val priceText = productPrice.text.toString()
             val description = productDescription.text.toString()
 
+            // List to store error messages
+            val errorMessages = mutableListOf<String>()
+
             // Validate Product Name
             if (name.isEmpty()) {
-                showDialog("Product name cannot be empty.")
-
+                errorMessages.add("Product name cannot be empty.")
             } else if (name.length > 60) {
-                showDialog("Product name cannot exceed 60 characters.")
-
+                errorMessages.add("Product name cannot exceed 60 characters.")
             }
 
             // Validate Product Size
-            val validSizes = setOf("small", "medium", "large","Small", "Medium", "Large")
+            val validSizes = setOf("small", "medium", "large", "Small", "Medium", "Large")
             if (!validSizes.contains(size.trim().toLowerCase())) {
-                showDialog("Invalid product size. Please use small, medium, or large.")
+                errorMessages.add("Invalid product size. Please use small, medium, or large.")
             }
 
             // Validate Product Price
-            if (priceText.isNotEmpty() && priceText.matches("\\d+(\\.\\d+)?".toRegex())) {
-                // Convert priceText to float if it's a valid number
-                val price = priceText.toFloat()
+            if (priceText.isNotEmpty()) {
+                if (priceText.matches("\\d+(\\.\\d+)?".toRegex())) {
+                    // Convert priceText to float if it's a valid number
+                    val price = priceText.toFloat()
 
-                // Validate Product Description
-                if (description.length > 255) {
-                    showDialog("Product description cannot exceed 255 characters.")
+                    // Validate Product Description
+                    if (description.isEmpty()) {
+                        errorMessages.add("Product description cannot be empty.")
+                    } else if (description.length > 255) {
+                        errorMessages.add("Product description cannot exceed 255 characters.")
+                    }
 
-                }
+                    // Continue with image upload and data submission
+                    if (this::imageUri.isInitialized) {
+                        // No error, proceed with data submission
+                        if (errorMessages.isEmpty()) {
+                            uploadImage(name, size, price, description)
 
-                // Continue with image upload and data submission
-                if (this::imageUri.isInitialized) {
-                    uploadImage(name, size, price, description)
-
-                    productName.setText("")
-                    productSize.setText("")
-                    productPrice.setText("")
-                    productDescription.setText("")
-                    val drawable = ContextCompat.getDrawable(this, R.drawable.flowersample)
-                    findViewById<ImageView>(R.id.imageView).setImageDrawable(drawable)
+                            productName.setText("")
+                            productSize.setText("")
+                            productPrice.setText("")
+                            productDescription.setText("")
+                            val drawable = ContextCompat.getDrawable(this, R.drawable.flowersample)
+                            findViewById<ImageView>(R.id.imageView).setImageDrawable(drawable)
+                        } else {
+                            // Display error messages in the error_dialog
+                            showErrorDialog(errorMessages)
+                        }
+                    } else {
+                        errorMessages.add("Please select an image.")
+                        // Display error messages in the error_dialog
+                        showErrorDialog(errorMessages)
+                    }
                 } else {
-                    showDialog("Please select an image.")
+                    // Show an error message dialog for invalid product price
+                    errorMessages.add("Invalid product price. Please enter a valid number.")
+                    // Display error messages in the error_dialog
+                    showErrorDialog(errorMessages)
                 }
             } else {
-                // Show an error message dialog for invalid product price
-                showDialog("Invalid product price. Please enter a valid number.")
+                // Show an error message dialog for empty product price
+                errorMessages.add("Product price cannot be empty.")
+                // Display error messages in the error_dialog
+                showErrorDialog(errorMessages)
             }
         }
     }
@@ -188,12 +212,26 @@ class ProductListing : AppCompatActivity() {
             }
         }
     }
-    private fun showDialog(message: String) {
+
+    private fun showSuccessDialog() {
+        val dialog = Dialog(this)
+        dialog.setContentView(R.layout.productsuccess_dialog)
+
+        val viewButton = dialog.findViewById<Button>(R.id.btnDone)
+        viewButton.setOnClickListener {
+            dialog.dismiss()
+            val intent = Intent(this, HomeMainActivity::class.java)
+            startActivity(intent)
+        }
+        dialog.show()
+    }
+
+    private fun showErrorDialog(errorMessages: List<String>) {
         val dialog = Dialog(this)
         dialog.setContentView(R.layout.error_dialog)
 
-        val errorMessage = dialog.findViewById<TextView>(R.id.errorMessage)
-        errorMessage.text = message
+        val errorMessageTextView = dialog.findViewById<TextView>(R.id.errorMessage)
+        errorMessageTextView.text = errorMessages.joinToString("\n") { "- $it" }
 
         val retryButton = dialog.findViewById<Button>(R.id.btnRetry)
         retryButton.setOnClickListener {
@@ -208,19 +246,6 @@ class ProductListing : AppCompatActivity() {
             finish()
         }
 
-        dialog.show()
-    }
-
-    private fun showSuccessDialog() {
-        val dialog = Dialog(this)
-        dialog.setContentView(R.layout.productsuccess_dialog)
-
-        val viewButton = dialog.findViewById<Button>(R.id.btnDone)
-        viewButton.setOnClickListener {
-            dialog.dismiss()
-            val intent = Intent(this, HomeMainActivity::class.java)
-            startActivity(intent)
-        }
         dialog.show()
     }
 
