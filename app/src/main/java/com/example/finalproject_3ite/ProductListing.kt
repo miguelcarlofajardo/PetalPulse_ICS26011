@@ -61,22 +61,51 @@ class ProductListing : AppCompatActivity() {
         publishButton.setOnClickListener {
             val name = productName.text.toString()
             val size = productSize.text.toString()
-            val price = productPrice.text.toString().toFloat()
+            val priceText = productPrice.text.toString()
             val description = productDescription.text.toString()
 
-            if (this::imageUri.isInitialized) {
-                // Show a loading indicator here (optional)
-                uploadImage(name, size, price, description)
+            // Validate Product Name
+            if (name.isEmpty()) {
+                showDialog("Product name cannot be empty.")
 
-                productName.setText("")
-                productSize.setText("")
-                productPrice.setText("")
-                productDescription.setText("")
-                val drawable = ContextCompat.getDrawable(this, R.drawable.flowersample)
-                findViewById<ImageView>(R.id.imageView).setImageDrawable(drawable)
+            } else if (name.length > 60) {
+                showDialog("Product name cannot exceed 60 characters.")
 
+            }
+
+            // Validate Product Size
+            val validSizes = setOf("small", "medium", "large","Small", "Medium", "Large")
+            if (!validSizes.contains(size.trim().toLowerCase())) {
+                showDialog("Invalid product size. Please use small, medium, or large.")
+            }
+
+            // Validate Product Price
+            if (priceText.isNotEmpty() && priceText.matches("\\d+(\\.\\d+)?".toRegex())) {
+                // Convert priceText to float if it's a valid number
+                val price = priceText.toFloat()
+
+                // Validate Product Description
+                if (description.length > 255) {
+                    showDialog("Product description cannot exceed 255 characters.")
+
+                }
+
+                // Continue with image upload and data submission
+                if (this::imageUri.isInitialized) {
+                    uploadImage(name, size, price, description)
+
+                    productName.setText("")
+                    productSize.setText("")
+                    productPrice.setText("")
+                    productDescription.setText("")
+                    val drawable = ContextCompat.getDrawable(this, R.drawable.flowersample)
+                    findViewById<ImageView>(R.id.imageView).setImageDrawable(drawable)
+                } else {
+                    showDialog("Please select an image.")
+                }
             } else {
-                Toast.makeText(this, "Please select an image", Toast.LENGTH_SHORT).show()
+                // Show an error message dialog for invalid product price
+                showDialog("Invalid product price. Please enter a valid number.")
             }
         }
     }
@@ -109,7 +138,6 @@ class ProductListing : AppCompatActivity() {
         // Show the dialog
         dialog.show()
 
-
         // Generate a unique image name using UUID
         val imageName = UUID.randomUUID().toString()
 
@@ -119,10 +147,10 @@ class ProductListing : AppCompatActivity() {
         // Upload the image to Firebase Storage
         val uploadTask = imageRef.putFile(imageUri)
 
-        // Set up a listener to be notified when the upload is complete
         uploadTask.addOnCompleteListener { task ->
             // Dismiss the ProgressDialog
             dialog.dismiss()
+            showSuccessDialog()
             if (task.isSuccessful) {
                 // If the image upload is successful, get the download URL
                 imageRef.downloadUrl.addOnCompleteListener { urlTask ->
@@ -143,11 +171,10 @@ class ProductListing : AppCompatActivity() {
                         val intent = Intent(this@ProductListing, ProductDetailsActivity::class.java)
                         intent.putExtra("productId", dataKey)
                         intent.putExtra("productName", name)
-                        intent.putExtra("productPrice", price.toString())
+                        intent.putExtra("productPrice", price)
                         intent.putExtra("productSize", size)
                         intent.putExtra("productDescription", description)
                         intent.putExtra("imageUrl", imageUrl)
-                        startActivity(intent)
                     } else {
                         // Handle the case where getting the image URL fails
                         Log.e("ProductListing", "Failed to get image URL", urlTask.exception)
@@ -161,8 +188,41 @@ class ProductListing : AppCompatActivity() {
             }
         }
     }
+    private fun showDialog(message: String) {
+        val dialog = Dialog(this)
+        dialog.setContentView(R.layout.error_dialog)
 
+        val errorMessage = dialog.findViewById<TextView>(R.id.errorMessage)
+        errorMessage.text = message
 
+        val retryButton = dialog.findViewById<Button>(R.id.btnRetry)
+        retryButton.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        val cancelButton = dialog.findViewById<Button>(R.id.btnCancel)
+        cancelButton.setOnClickListener {
+            dialog.dismiss()
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        dialog.show()
+    }
+
+    private fun showSuccessDialog() {
+        val dialog = Dialog(this)
+        dialog.setContentView(R.layout.productsuccess_dialog)
+
+        val viewButton = dialog.findViewById<Button>(R.id.btnDone)
+        viewButton.setOnClickListener {
+            dialog.dismiss()
+            val intent = Intent(this, HomeMainActivity::class.java)
+            startActivity(intent)
+        }
+        dialog.show()
+    }
 
     companion object {
         private const val PICK_IMAGE_REQUEST = 1

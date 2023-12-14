@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dialog_background"
+    android:padding="20dp">
+
+    <!-- Wrap the existing components inside a LinearLayout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+        <FrameLayout
+            android:id="@+id/framelayout"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_weight="1">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieAnimationView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:lottie_autoPlay="true"
+                app:lottie_rawRes="@raw/flowerbloom"
+                app:lottie_loop="true" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/framelayout"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/textViewMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:text="Successfully Added!"
+                android:textColor="#659157"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="20sp"
+                android:visibility="visible" />
+
+            <Button
+                android:layout_gravity="center"
+                android:id="@+id/btnDone"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#659157"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Done"
+                android:textColor="#000000"
+                app:cornerRadius="5sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
