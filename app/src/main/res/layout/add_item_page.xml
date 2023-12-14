@@ -139,27 +139,36 @@
                         android:padding="10sp"
                         android:textSize="15sp" />
 
-                    <Button
-                        android:id="@+id/btnPublish"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="#FF7D8C"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:text="Publish"
-                        android:textColor="#000000"
-                        app:cornerRadius="5sp"
-                        app:layout_constraintVertical_bias="0.804" />
-                    <Button
-                        android:id="@+id/btnCancel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="10dp"
-                        android:backgroundTint="#FF7D8C"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:text="Cancel"
-                        android:textColor="#000000"
-                        app:cornerRadius="5sp"
-                        app:layout_constraintVertical_bias="0.804" />
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btnPublish"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:backgroundTint="#A1C084"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Publish"
+                            android:textColor="#000000"
+                            app:cornerRadius="5sp" />
+
+                        <Button
+                            android:id="@+id/btnCancel"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="#FF7D8C"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Cancel"
+                            android:textColor="#000000"
+                            app:cornerRadius="5sp" />
+                    </LinearLayout>
+
+
                 </LinearLayout>
 
                 <LinearLayout

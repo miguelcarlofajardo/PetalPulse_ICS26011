@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileActivity"
-    android:background="@drawable/bgprofile">
+    android:background="@drawable/profilebg">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,20 +16,6 @@
             android:layout_height="686dp"
             android:layout_margin="20dp"
             android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/imgBtnBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:backgroundTint="#00FFFFFF"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.074"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.067"
-                app:srcCompat="@drawable/icon_back" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -59,6 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="401dp"
                 android:orientation="vertical"
+                android:layout_marginTop="40dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.457"

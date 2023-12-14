@@ -22,13 +22,12 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/btnBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon_back"
-                android:layout_marginStart="10dp"
-                android:backgroundTint="#00FFFFFF"/>
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/p_1"
+                android:layout_marginStart="20dp" />
 
             <Space
                 android:layout_width="0dp"
