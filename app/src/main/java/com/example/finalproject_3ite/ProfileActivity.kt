@@ -8,6 +8,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -92,6 +93,7 @@ class ProfileActivity : AppCompatActivity() {
         alertDialogBuilder.setPositiveButton("Yes") { _, _ ->
             // User clicked Yes, proceed with account deletion
             deleteAccount()
+            showDeleteToast()
         }
         alertDialogBuilder.setNegativeButton("No") { dialog, _ ->
             // User clicked No, dismiss the dialog
@@ -107,6 +109,7 @@ class ProfileActivity : AppCompatActivity() {
         alertDialogBuilder.setPositiveButton("Yes") { _, _ ->
             // User clicked Yes, proceed with logout
             logout()
+            showLogoutToast()
         }
         alertDialogBuilder.setNegativeButton("No") { dialog, _ ->
             // User clicked No, dismiss the dialog
@@ -141,6 +144,13 @@ class ProfileActivity : AppCompatActivity() {
                 Log.e("ProfileActivity", "Error deleting account: ${task.exception?.message}")
             }
         }
+    }
+    private fun showDeleteToast() {
+        Toast.makeText(this, "Account deleted successfully!", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun showLogoutToast() {
+        Toast.makeText(this, "Logged out successfully!", Toast.LENGTH_SHORT).show()
     }
 
     private fun logout() {
